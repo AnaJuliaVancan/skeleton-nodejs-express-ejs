@@ -17,12 +17,11 @@ class Autor {
     const values = [data.id, data.nome, data.sobrenome, data.data_nascimento]
     return await connect.query(sql, values);
   }
-  static async deletar() {
+  static async deletar(data) {
     const connect = await db.connect();
-    const sql = "delete from autores where = $1";
+    const sql = "delete from autores where id = $1";
     const values = [data.id]
     return await connect.query(sql, values);
-  }
 }
-
+}
 module.exports = Autor;

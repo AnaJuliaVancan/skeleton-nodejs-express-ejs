@@ -32,14 +32,14 @@ router.put('/atualizar', async function(req, res, next) {
   
 });
 
-router.get('/deletar', async function(req, res, next) {
+router.delete('/deletar', async function(req, res, next) {
 
-  const autor = {
+ /* const autor = {
     nome: "Lulu",
     sobrenome: "Linda",
     data_nascimento: "2022/03/11"
-  }
-  const autores = await Autor.deletar(autor);
+  }*/
+  const autores = await Autor.deletar(req.body);
   res.json(autores.rows);
 });
 
