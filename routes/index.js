@@ -17,21 +17,19 @@ router.post('/inserir', async function(req, res, next) {
   }*/
   const autores = await Autor.inserir(req.body);
   res.json(autores.rows);
-
-  res.json(req.body);
 });
 
-router.get('/atualizar', async function(req, res, next) {
+router.put('/atualizar', async function(req, res, next) {
 
-  const autor = {
+  /*const autor = {
     nome: "Lulu",
     sobrenome: "Linda",
     data_nascimento: "2022/03/11",
     id: " "
-  }
-  
-  const autores = await Autor.atualizar(autor);
+  }*/
+  const autores = await Autor.atualizar(req.body);
   res.json(autores.rows);
+  
 });
 
 router.get('/deletar', async function(req, res, next) {

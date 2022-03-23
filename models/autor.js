@@ -11,10 +11,10 @@ class Autor {
     const connect = await db.connect();
     return await connect.query("select * from autores");
   }
-  static async atualizar() {
+  static async atualizar(data) {
     const connect = await db.connect();
-    const sql = "update autores set nome = $1, sobrenome = $2, data_nascimento = $3 where id = $4 ";
-    const values = [data.nome, data.sobrenome, data.data_nascimento]
+    const sql = "update autores set nome = $2, sobrenome = $3, data_nascimento = $4 where id = $1";
+    const values = [data.id, data.nome, data.sobrenome, data.data_nascimento]
     return await connect.query(sql, values);
   }
   static async deletar() {
