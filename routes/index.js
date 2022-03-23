@@ -9,14 +9,16 @@ router.get('/', async function(req, res, next) {
 });
 
 router.post('/inserir', async function(req, res, next) {
-
+/*
   const autor = {
     nome: "Lulu",
     sobrenome: "Linda",
     data_nascimento: "2022/03/11"
-  }
-  const autores = await Autor.inserir(autor);
+  }*/
+  const autores = await Autor.inserir(req.body);
   res.json(autores.rows);
+
+  res.json(req.body);
 });
 
 router.get('/atualizar', async function(req, res, next) {
